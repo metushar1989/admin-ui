@@ -1,0 +1,29 @@
+<div class="log">
+  <h2>Welcome Back</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+    <mat-form-field class="example-full-width">
+      <mat-icon matSuffix>account_circle</mat-icon>
+      <mat-label>User Name</mat-label>
+      <input matInput formControlName="email" name="email">
+      <div *ngIf="f.email.errors">
+        <mat-error *ngIf="f.email.errors.required"><small>Email is required</small></mat-error>
+        <mat-error *ngIf="f.email.errors.email"><small>Email must be a valid email address</small> </mat-error>
+    </div>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-icon matSuffix>lock</mat-icon>
+      <mat-label>Password</mat-label>
+      <input matInput type="password" name="password" formControlName="password">
+    </mat-form-field>
+
+    <span class="check">
+      <input type="checkbox"> &nbsp; <label>Remember Me</label>
+    </span>
+    <!-- <a href="#">Forgot Password</a> -->
+    <div class="clear"></div>
+    <button mat-button color="primary" [disabled]="loginForm.invalid">Log In <mat-icon matSuffix>fingerprint</mat-icon>
+    </button>
+  </form>
+</div>
